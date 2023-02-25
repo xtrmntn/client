@@ -1,0 +1,13 @@
+.card {
+  height: 100%;
+
+  @media screen and (max-width: 480px) {
+    &:global(.chakra-card) {
+      box-shadow: none;
+    }
+
+    :global(.chakra-card__body) {
+      padding: 0;
+    }
+  }
+}

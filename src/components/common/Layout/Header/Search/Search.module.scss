@@ -1,0 +1,24 @@
+@import '@/assets/styles/vars';
+
+.search {
+  position: relative;
+  flex-grow: 1;
+
+  .btn {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    color: $white;
+    background-color: $primary;
+
+    &:hover {
+      background-color: $primary-dark;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    order: 4;
+    width: 100%;
+    margin-inline-start: 0 !important;
+  }
+}

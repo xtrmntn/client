@@ -1,0 +1,12 @@
+.container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
