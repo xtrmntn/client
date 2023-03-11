@@ -37,7 +37,7 @@ const Header: FC = () => {
             flexShrink="0"
           >
             <HStack color="secondary">
-              <MdPhone size="20px" />
+              <MdPhone />
               <Text>{phone}</Text>
             </HStack>
           </Box>

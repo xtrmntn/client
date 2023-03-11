@@ -21,7 +21,7 @@ const ProductsFilterButton: FC = () => {
         variant="outline"
         aria-label="Открыть фильтры"
         color="gray.400"
-        icon={<MdOutlineFilterAlt size="20px" />}
+        icon={<MdOutlineFilterAlt />}
         onClick={onOpen}
       />
 

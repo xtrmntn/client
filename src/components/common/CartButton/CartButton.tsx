@@ -42,7 +42,7 @@ const CartButton: FC<CartButtonProps> = ({ product }) => {
       _disabled={{ pointerEvents: 'none', backgroundColor: 'gray.400' }}
       _hover={{ backgroundColor: 'primary-dark' }}
       onClick={onClick}
-      {...!isInCart && { rightIcon: <MdShoppingCart size="20px" /> }}
+      {...!isInCart && { rightIcon: <MdShoppingCart /> }}
     >
       {isInCart ? 'В корзине' : 'Купить'}
     </Button>

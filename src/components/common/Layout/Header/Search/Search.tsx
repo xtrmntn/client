@@ -39,7 +39,7 @@ const Search: FC = () => {
         className={styles.btn}
         aria-label="Найти"
         type="submit"
-        icon={<MdSearch size="20px" />}
+        icon={<MdSearch />}
       />
     </form>
   );

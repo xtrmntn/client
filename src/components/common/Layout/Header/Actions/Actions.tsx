@@ -12,12 +12,12 @@ const Actions: FC = () => {
   const items = useMemo(() => ([
     {
       link: '/wishlist',
-      icon: <MdFavorite color={theme.colors.danger} size="20px" />,
+      icon: <MdFavorite color={theme.colors.danger} />,
       quantity: wishlist.length,
     },
     {
       link: '/cart',
-      icon: <MdShoppingCart color={theme.colors.secondary} size="20px" />,
+      icon: <MdShoppingCart color={theme.colors.secondary} />,
       quantity: Object.keys(cart).length,
     },
   ]), [wishlist.length, cart]);

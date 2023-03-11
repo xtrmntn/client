@@ -20,7 +20,6 @@ const ProductsCountSelect: FC = () => {
     <Select
       width="fit-content"
       icon={<MdExpandMore />}
-      iconSize="20px"
       defaultValue={router.query.count}
       onChange={onChange}
     >

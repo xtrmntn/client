@@ -69,7 +69,7 @@ const Cart: FC = () => {
 
               <HStack justifyContent="space-between">
                 <Button
-                  leftIcon={<MdChevronLeft size="20px" />}
+                  leftIcon={<MdChevronLeft />}
                   onClick={router.back}
                 >
                   Назад
@@ -77,6 +77,7 @@ const Cart: FC = () => {
 
                 <Button
                   color="white"
+                  colorScheme="whatsapp"
                   backgroundColor="primary"
                   _hover={{ backgroundColor: 'primary-dark' }}
                 >

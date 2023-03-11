@@ -27,14 +27,14 @@ const Footer: FC = () => {
       { link: '/return', text: 'Возврат товара' },
     ],
     [
-      { link: '/privacy', text: 'Политика конфеденциальности' },
+      { link: '/privacy', text: 'Политика конфиденциальности' },
       { link: '/agreement', text: 'Пользовательское соглашение' },
       { link: '/offer', text: 'Публичная оферта' },
     ],
     [
-      { link: formatPhoneNumber(phone), text: phone, icon: <MdPhone color="secondary" size="20px" /> },
-      { link: `mailto:${email}`, text: email, icon: <MdEmail color="secondary" size="20px" /> },
-      { text: 'г. Оренбург, ул. Пушкина 56', icon: <MdLocationPin color="secondary" size="20px" /> },
+      { link: formatPhoneNumber(phone), text: phone, icon: <MdPhone /> },
+      { link: `mailto:${email}`, text: email, icon: <MdEmail /> },
+      { text: 'г. Оренбург, ул. Пушкина 56', icon: <MdLocationPin /> },
     ],
   ];
 

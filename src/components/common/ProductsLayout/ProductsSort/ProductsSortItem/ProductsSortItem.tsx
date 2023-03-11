@@ -33,7 +33,7 @@ const ProductsSortItem: FC<ProductsSortItemProps> = ({
       {...active && activeStyles}
     >
       <Text>{text}</Text>
-      {order === 'desc' ? <MdExpandMore size="20px" /> : <MdExpandLess size="20px" />}
+      {order === 'desc' ? <MdExpandMore /> : <MdExpandLess />}
     </HStack>
   );
 };

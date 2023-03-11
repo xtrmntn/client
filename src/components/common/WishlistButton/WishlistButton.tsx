@@ -39,7 +39,7 @@ const WishlistButton: FC<WishlistButtonProps> = ({ id }) => {
         color="white"
         backgroundColor={isInWishlist ? 'danger' : 'primary'}
         style={{ marginInlineStart: 0 }}
-        icon={<MdFavorite size="20px" />}
+        icon={<MdFavorite />}
         _hover={{ backgroundColor: isInWishlist ? 'danger-dark' : 'primary-dark' }}
         onClick={onClick}
       />
