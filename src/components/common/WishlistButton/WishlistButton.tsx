@@ -1,16 +1,16 @@
 import {
   FC, MouseEvent, useCallback, useMemo,
 } from 'react';
-import { IconButton, Tooltip, useToast } from '@chakra-ui/react';
+import { IconButton, Tooltip } from '@chakra-ui/react';
 import { MdFavorite } from 'react-icons/md';
 import { useProducts } from '@/context/products';
+import { toast } from '@/utils/toast';
 
 interface WishlistButtonProps {
   id: number;
 }
 
 const WishlistButton: FC<WishlistButtonProps> = ({ id }) => {
-  const toast = useToast();
   const { wishlist, setWishlist } = useProducts();
 
   const isInWishlist = useMemo(() => wishlist.includes(id), [wishlist, id]);
@@ -23,7 +23,6 @@ const WishlistButton: FC<WishlistButtonProps> = ({ id }) => {
     setWishlist(value);
     toast({
       description: isInWishlist ? 'Товар удален из избранного' : 'Товар добавлен в избранное',
-      position: 'top',
     });
   }, [isInWishlist, wishlist]);
 

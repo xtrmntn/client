@@ -16,18 +16,17 @@ import {
   NumberInputField,
   Stack,
   Text,
-  useToast,
 } from '@chakra-ui/react';
 import { Product } from '@/services/products';
 import { useProducts } from '@/context/products';
 import { formatPrice } from '@/utils/format';
+import { toast } from '@/utils/toast';
 
 interface CartItemProps {
   product: Product;
 }
 
 const CartItem: FC<CartItemProps> = ({ product }) => {
-  const toast = useToast();
   const {
     cart, wishlist, setCart, setWishlist,
   } = useProducts();
@@ -46,7 +45,7 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
 
   const onAddToWishlist = useCallback(() => {
     setWishlist([...wishlist, product.id]);
-    toast({ description: 'Товар добавлен в избранное', position: 'top' });
+    toast({ description: 'Товар добавлен в избранное' });
   }, [wishlist]);
 
   useEffect(() => {

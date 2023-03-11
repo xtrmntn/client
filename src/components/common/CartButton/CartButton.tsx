@@ -3,16 +3,16 @@ import {
   FC, MouseEvent, useCallback, useMemo,
 } from 'react';
 import { MdShoppingCart } from 'react-icons/md';
-import { Button, useToast } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 import { useProducts } from '@/context/products';
 import { Product } from '@/services/products';
+import { toast } from '@/utils/toast';
 
 interface CartButtonProps {
   product: Product;
 }
 
 const CartButton: FC<CartButtonProps> = ({ product }) => {
-  const toast = useToast();
   const router = useRouter();
   const { cart, setCart } = useProducts();
 
@@ -30,7 +30,7 @@ const CartButton: FC<CartButtonProps> = ({ product }) => {
       const value = { ...cart };
       value[product.id] = 1;
       setCart(value);
-      toast({ description: 'Товар довлен в корзину', position: 'top' });
+      toast({ description: 'Товар довлен в корзину' });
     }
   }, [isInCart, cart]);
 
