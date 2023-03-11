@@ -1,7 +1,7 @@
 import {
   createContext, FC, PropsWithChildren, useContext,
 } from 'react';
-import { useStorage } from '@/hooks/useStorage';
+import { useStorage } from '@/hooks/storage';
 
 type ContextValue = ReturnType<typeof useProvideProducts>;
 

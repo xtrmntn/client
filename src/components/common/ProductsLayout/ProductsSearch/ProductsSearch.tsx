@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { ChangeEvent, FC } from 'react';
 import { Input } from '@chakra-ui/react';
-import { useDebounce } from '@/hooks/useDebounce';
+import { useDebounce } from '@/hooks/debounce';
 
 const ProductsSearch: FC = () => {
   const router = useRouter();

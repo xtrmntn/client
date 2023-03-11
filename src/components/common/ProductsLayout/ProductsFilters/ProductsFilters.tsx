@@ -11,7 +11,7 @@ import {
   NumberInputField,
   Stack,
 } from '@chakra-ui/react';
-import { useDebounce } from '@/hooks/useDebounce';
+import { useDebounce } from '@/hooks/debounce';
 import styles from './ProductsFilters.module.scss';
 
 const ProductsFilters: FC = () => {

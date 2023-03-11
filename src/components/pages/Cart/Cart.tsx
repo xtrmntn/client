@@ -1,13 +1,12 @@
 import { useRouter } from 'next/router';
 import { FC, useMemo } from 'react';
-import { useQuery } from 'react-query';
 import { MdChevronLeft } from 'react-icons/md';
 import {
   Button,
   Center, Container, Heading, HStack, Spinner, Stack, Text,
 } from '@chakra-ui/react';
 import { useProducts } from '@/context/products';
-import { getProducts } from '@/services/products';
+import { useGetProductsByIds } from '@/hooks/products';
 import { formatEnding, formatPrice } from '@/utils/format';
 import Layout from '@/components/common/Layout';
 import CartList from './CartList';
@@ -15,17 +14,8 @@ import CartList from './CartList';
 const Cart: FC = () => {
   const router = useRouter();
   const { cart } = useProducts();
-
   const ids = useMemo(() => Object.keys(cart), [cart]);
-
-  const { data, isLoading, isSuccess } = useQuery(
-    ['products', { ids }],
-    () => getProducts({ ids: ids.join(',') }),
-    {
-      enabled: Boolean(ids.length),
-      keepPreviousData: Boolean(ids.length),
-    },
-  );
+  const { data, isLoading, isSuccess } = useGetProductsByIds(ids);
 
   const total = useMemo(() => (
     isSuccess ? data.items.reduce((acc, item) => {

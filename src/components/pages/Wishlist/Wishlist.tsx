@@ -1,24 +1,15 @@
 import { FC } from 'react';
-import { useQuery } from 'react-query';
 import {
   Center, Container, Heading, Spinner, Stack,
 } from '@chakra-ui/react';
 import Layout from '@/components/common/Layout';
 import { useProducts } from '@/context/products';
-import { getProducts } from '@/services/products';
+import { useGetProductsByIds } from '@/hooks/products';
 import WishlistList from './WishlistList';
 
 const Wishlist: FC = () => {
   const { wishlist } = useProducts();
-
-  const { data, isLoading, isSuccess } = useQuery(
-    ['products', { ids: wishlist }],
-    () => getProducts({ ids: wishlist.join(',') }),
-    {
-      enabled: Boolean(wishlist.length),
-      keepPreviousData: Boolean(wishlist.length),
-    },
-  );
+  const { data, isLoading, isSuccess } = useGetProductsByIds(wishlist);
 
   return (
     <Layout

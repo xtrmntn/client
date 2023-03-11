@@ -1,21 +1,12 @@
 import { FC } from 'react';
-import { useQuery } from 'react-query';
 import { Heading, Stack } from '@chakra-ui/react';
 import { useProducts } from '@/context/products';
-import { getProducts } from '@/services/products';
+import { useGetProductsByIds } from '@/hooks/products';
 import ProductsList from '../ProductsList';
 
 const WatchedProducts: FC = () => {
   const { watched } = useProducts();
-
-  const { data, isLoading, isSuccess } = useQuery(
-    ['products', { ids: watched }],
-    () => getProducts({ ids: watched.join(',') }),
-    {
-      enabled: Boolean(watched.length),
-      keepPreviousData: Boolean(watched.length),
-    },
-  );
+  const { data, isLoading, isSuccess } = useGetProductsByIds(watched);
 
   if (!isSuccess || isLoading) return null;
 
