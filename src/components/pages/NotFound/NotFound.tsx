@@ -5,8 +5,7 @@ import Layout from '@/components/common/Layout';
 const NotFound: FC = () => (
   <Layout
     title="404"
-    description=""
-    keywords={[]}
+    description="Страница не найдена."
   >
     <Container textAlign="center">
       <Heading>404</Heading>

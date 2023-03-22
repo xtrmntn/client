@@ -26,5 +26,12 @@ export const theme = extendTheme({
         size: 'xl',
       },
     },
+    List: {
+      baseStyle: {
+        container: {
+          paddingLeft: '20px',
+        },
+      },
+    },
   },
 });

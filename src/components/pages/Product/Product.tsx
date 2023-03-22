@@ -15,6 +15,12 @@ interface ProductProps {
 const Product: FC<ProductProps> = ({ product }) => {
   const { watched, setWatched } = useProducts();
 
+  const keywords = [
+    product.category.name,
+    product.name,
+    ...product.description ? [product.description] : [],
+  ];
+
   useEffect(() => {
     if (watched.includes(product.id)) return;
     const products = [product.id, ...watched].slice(0, 4);
@@ -24,8 +30,8 @@ const Product: FC<ProductProps> = ({ product }) => {
   return (
     <Layout
       title={product.name}
-      description=""
-      keywords={[]}
+      description={product.description || ''}
+      keywords={keywords}
     >
       <Container>
         <Stack gap="60px">

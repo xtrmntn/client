@@ -5,8 +5,7 @@ import Layout from '@/components/common/Layout';
 const ServerError: FC = () => (
   <Layout
     title="500"
-    description=""
-    keywords={[]}
+    description="Что-то пошло не так."
   >
     <Container textAlign="center">
       <Heading>500</Heading>

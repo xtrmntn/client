@@ -11,7 +11,6 @@ interface CatalogProps {
 const Catalog: FC<CatalogProps> = ({ categories }) => (
   <Layout
     title="Каталог"
-    description=""
     keywords={categories.map((category) => category.name)}
   >
     <Container>

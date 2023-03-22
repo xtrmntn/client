@@ -19,8 +19,7 @@ const Products: FC<ProductsProps> = ({ products }) => {
   return (
     <Layout
       title={router.query.search as string}
-      description=""
-      keywords={[]}
+      keywords={[router.query.search as string]}
     >
       <Container>
         <ProductsLayout>

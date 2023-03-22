@@ -26,11 +26,7 @@ const Cart: FC = () => {
   ), [data?.items, cart]);
 
   return (
-    <Layout
-      title="Корзина"
-      description=""
-      keywords={[]}
-    >
+    <Layout title="Корзина">
       <Container maxWidth="1000px">
         <Stack as="section" gap="20px">
           <Heading as="h1">Корзина</Heading>

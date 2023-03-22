@@ -12,11 +12,7 @@ const Wishlist: FC = () => {
   const { data, isLoading, isSuccess } = useGetProductsByIds(wishlist);
 
   return (
-    <Layout
-      title="Избранное"
-      description=""
-      keywords={[]}
-    >
+    <Layout title="Избранное">
       <Container maxWidth="1000px">
         <Stack as="section" gap="20px">
           <Heading as="h1">Избранное</Heading>

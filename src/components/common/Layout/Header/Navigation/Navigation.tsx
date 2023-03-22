@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { FC } from 'react';
 import { Container, HStack, Text } from '@chakra-ui/react';
+import Link from '@/components/common/Link';
 import styles from './Navigation.module.scss';
 
 const Navigation: FC = () => {
@@ -25,6 +25,7 @@ const Navigation: FC = () => {
           <Link
             key={item.link}
             href={item.link}
+            color="white"
           >
             <Text color="white" whiteSpace="nowrap">
               {item.text}

@@ -3,6 +3,7 @@ import { FC, useMemo } from 'react';
 import { Container, Stack } from '@chakra-ui/react';
 import { CategoryWithChildren } from '@/services/categories';
 import { Product } from '@/services/products';
+import { getParentCategories } from '@/utils/categories';
 import { useGetProducts } from '@/hooks/products';
 import { GetManyResponse } from '@/core/types';
 import Layout from '@/components/common/Layout';
@@ -24,11 +25,12 @@ const Category: FC<CategoryProps> = ({ category, products }) => {
   }), [router.query, category.id]);
   const { data, isRefetching, isSuccess } = useGetProducts(query, products);
 
+  const categories = getParentCategories(category);
+
   return (
     <Layout
       title={category.name}
-      description=""
-      keywords={[]}
+      keywords={categories.map((category) => category.name)}
     >
       <Container>
         <Stack gap="60px">

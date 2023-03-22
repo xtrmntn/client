@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { FC } from 'react';
-import { Button, Stack, Text } from '@chakra-ui/react';
+import { Stack, Text } from '@chakra-ui/react';
 import { Product } from '@/services/products';
+import Link from '@/components/common/Link';
 import CartItem from './CartItem';
 
 interface CartListProps {
@@ -23,13 +23,7 @@ const CartList: FC<CartListProps> = ({ products }) => (
       К сожалению, ваша корзина пуста, добавьте в нее товары в
       {' '}
       <Link href="/catalog">
-        <Button
-          variant="link"
-          color="primary"
-          _active={{ color: 'primary-dark' }}
-        >
-          каталоге
-        </Button>
+        каталоге
       </Link>
     </Text>
   )

@@ -1,10 +1,13 @@
-import Link from 'next/link';
 import { FC, Fragment, ReactNode } from 'react';
 import { MdEmail, MdLocationPin, MdPhone } from 'react-icons/md';
 import {
   Box, Container, Divider, HStack, SimpleGrid, Stack, Text, useMediaQuery,
 } from '@chakra-ui/react';
 import { formatPhoneNumber } from '@/utils/format';
+import {
+  email, inn, ogrn, phone,
+} from '@/core/constants';
+import Link from '@/components/common/Link';
 
 interface MenuItem {
   text: string;
@@ -15,12 +18,11 @@ interface MenuItem {
 const Footer: FC = () => {
   const [isTablet] = useMediaQuery('(max-width: 992px)');
 
-  const phone = '+7 (999) 123-45-67';
-  const email = 'dezflower@mail.ru';
-
   const lists: MenuItem[][] = [
     [
       { text: 'ИП Кравец В. Л.' },
+      { text: `ИНН ${inn}` },
+      { text: `ОГРН ${ogrn}` },
     ],
     [
       { link: '/payment', text: 'Оплата и доставка' },
@@ -28,13 +30,12 @@ const Footer: FC = () => {
     ],
     [
       { link: '/privacy', text: 'Политика конфиденциальности' },
-      { link: '/agreement', text: 'Пользовательское соглашение' },
       { link: '/offer', text: 'Публичная оферта' },
     ],
     [
       { link: formatPhoneNumber(phone), text: phone, icon: <MdPhone /> },
       { link: `mailto:${email}`, text: email, icon: <MdEmail /> },
-      { text: 'г. Оренбург, ул. Пушкина 56', icon: <MdLocationPin /> },
+      { text: 'пр-д Автоматики, д. 12/1, кв. 25', icon: <MdLocationPin /> },
     ],
   ];
 
@@ -60,7 +61,7 @@ const Footer: FC = () => {
                 {list.map((item) => (
                   <HStack key={item.text} as="li">
                     {item.link ? (
-                      <Link href={item.link}>
+                      <Link href={item.link} color="white">
                         <HStack>
                           {item.icon}
                           <Text>{item.text}</Text>
