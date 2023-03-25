@@ -35,7 +35,14 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
   const isInWishlist = useMemo(() => wishlist.includes(product.id), [wishlist, product.id]);
 
   const onIncrement = () => setQuantity((prev) => prev + 1);
-  const onDecrement = () => setQuantity((prev) => prev - 1);
+
+  const onDecrement = () => setQuantity((prev) => (prev <= 1 ? 1 : prev - 1));
+
+  const onChangeQuantity = (value: string) => {
+    const number = Number(value);
+    if (Number.isNaN(number)) return;
+    setQuantity(number || 1);
+  };
 
   const onRemoveFromCart = useCallback(() => {
     const value = { ...cart };
@@ -71,6 +78,7 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
                   alt={product.name}
                   priority
                   fill
+                  style={{ objectFit: 'contain' }}
                 />
               </AspectRatio>
             </Link>
@@ -105,18 +113,19 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
               lg: 'repeat(3, 1fr)',
             }}
             justifyContent={{ base: 'space-between', sm: 'center' }}
+            flexShrink={0}
             gap="20px"
           >
             <GridItem display="flex" alignItems="center">
               <HStack>
-                <Button onClick={onDecrement}>-</Button>
+                <Button isDisabled={quantity <= 1} onClick={onDecrement}>-</Button>
                 <NumberInput
                   value={quantity}
                   width="100%"
-                  maxWidth="70px"
-                  onChange={(_, value) => setQuantity(value)}
+                  maxWidth="50px"
+                  onChange={onChangeQuantity}
                 >
-                  <NumberInputField padding="0 14px" textAlign="center" />
+                  <NumberInputField padding="0 7px" textAlign="center" />
                 </NumberInput>
                 <Button onClick={onIncrement}>+</Button>
               </HStack>
