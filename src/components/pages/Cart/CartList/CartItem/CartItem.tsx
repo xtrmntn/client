@@ -78,7 +78,6 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
                   alt={product.name}
                   priority
                   fill
-                  style={{ objectFit: 'contain' }}
                 />
               </AspectRatio>
             </Link>

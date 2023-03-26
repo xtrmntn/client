@@ -17,3 +17,7 @@ html {
   font-size: 14px;
   overflow-x: hidden;
 }
+
+img {
+  object-fit: contain !important;
+}

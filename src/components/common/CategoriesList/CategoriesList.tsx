@@ -5,8 +5,8 @@ import {
   AspectRatio,
   Card,
   CardBody,
-  Center,
   SimpleGrid,
+  Stack,
   Text,
 } from '@chakra-ui/react';
 import { Category } from '@/services/categories';
@@ -26,19 +26,19 @@ const CategoriesList: FC<CategoriesListProps> = ({ categories }) => (
         href={`/catalog/${category.slug}`}
       >
         <Card overflow="hidden">
-          <AspectRatio ratio={16 / 9}>
-            <Image
-              src={category.image ? `${process.env.UPLOADS_URL}/${category.image}` : '/placeholder.svg'}
-              alt={category.name}
-              priority
-              fill
-            />
-          </AspectRatio>
-
           <CardBody>
-            <Center flex={1}>
+            <Stack textAlign="center" gap="10px">
+              <AspectRatio ratio={16 / 9}>
+                <Image
+                  src={category.image ? `${process.env.UPLOADS_URL}/${category.image}` : '/placeholder.svg'}
+                  alt={category.name}
+                  priority
+                  fill
+                />
+              </AspectRatio>
+
               <Text as="h3">{category.name}</Text>
-            </Center>
+            </Stack>
           </CardBody>
         </Card>
       </Link>

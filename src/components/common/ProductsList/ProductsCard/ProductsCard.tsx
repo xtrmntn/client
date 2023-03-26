@@ -25,7 +25,6 @@ const ProductsCard: FC<ProductsCardProps> = ({ product }) => (
               alt={product.name}
               priority
               fill
-              style={{ objectFit: 'contain' }}
             />
           </AspectRatio>
         </Link>
