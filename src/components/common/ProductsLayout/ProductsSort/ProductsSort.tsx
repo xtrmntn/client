@@ -20,11 +20,8 @@ const ProductsSort: FC = () => {
 
   const onClick = (sort: Sort) => (order: Order) => {
     setSort(sort);
-    router.push(
-      { query: { ...router.query, sort, order } },
-      {},
-      { scroll: false, shallow: true },
-    );
+    const query = { ...router.query, sort, order };
+    router.push({ query }, { query }, { scroll: false, shallow: true });
   };
 
   return (

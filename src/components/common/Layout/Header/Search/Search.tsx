@@ -16,10 +16,11 @@ const Search: FC = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push({
+    const state = {
       pathname: '/products',
-      query: { search },
-    });
+      query: search ? { search } : {},
+    };
+    router.push(state, state);
   };
 
   return (

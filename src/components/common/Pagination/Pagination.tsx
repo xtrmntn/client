@@ -20,8 +20,10 @@ const Pagination: FC<PaginationProps> = ({ total, count }) => {
     const page = e.selected + 1;
     const query: UrlObject['query'] = { ...router.query, page };
     if (page === 1) delete query.page;
-    router.push({ query }, {}, { scroll: false, shallow: true });
+    router.push({ query }, { query }, { scroll: false, shallow: true });
   };
+
+  if (pageCount <= 1) return null;
 
   return (
     <ReactPaginate
@@ -31,6 +33,7 @@ const Pagination: FC<PaginationProps> = ({ total, count }) => {
       previousClassName={styles.prev}
       activeClassName={styles.active}
       disabledClassName={styles.disabled}
+      breakClassName={styles.break}
       breakLabel={<MdOutlineMoreHoriz />}
       nextLabel={<MdChevronRight />}
       previousLabel={<MdChevronLeft />}

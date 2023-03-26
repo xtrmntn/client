@@ -4,7 +4,7 @@ import { GetManyResponse } from '@/core/types';
 
 export const useGetProductsByIds = (ids: (string | number)[]) => useQuery(
   ['products', { ids }],
-  () => getProducts({ ids: ids.join(',') }),
+  () => getProducts({ ids: ids.join(','), count: 1000 }),
   {
     enabled: Boolean(ids.length),
     keepPreviousData: Boolean(ids.length),

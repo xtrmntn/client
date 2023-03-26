@@ -12,7 +12,7 @@ const ProductsSearch: FC = () => {
       const search = e.target.value;
       const query: Record<string, string> = { ...router.query, search };
       if (!search) delete query.search;
-      router.push({ query }, {}, { scroll: false, shallow: true });
+      router.push({ query }, { query }, { scroll: false, shallow: true });
     });
   };
 

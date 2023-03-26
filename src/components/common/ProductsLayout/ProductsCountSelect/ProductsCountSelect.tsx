@@ -9,11 +9,8 @@ const ProductsCountSelect: FC = () => {
   const items = [20, 50, 100];
 
   const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    router.push(
-      { query: { ...router.query, count: e.target.value } },
-      {},
-      { scroll: false, shallow: true },
-    );
+    const query = { ...router.query, count: e.target.value };
+    router.push({ query }, { query }, { scroll: false, shallow: true });
   };
 
   return (

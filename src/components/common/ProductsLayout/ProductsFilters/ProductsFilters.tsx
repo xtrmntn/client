@@ -23,7 +23,7 @@ const ProductsFilters: FC = () => {
       const { name, value } = e.target;
       const query = { ...router.query, [name]: value };
       if (!value) delete query[name];
-      router.push({ query }, {}, { scroll: false, shallow: true });
+      router.push({ query }, { query }, { scroll: false, shallow: true });
     });
   };
 
@@ -31,7 +31,7 @@ const ProductsFilters: FC = () => {
     const { name, checked } = e.target;
     const query = { ...router.query, [name]: checked };
     if (!checked) delete query[name];
-    router.push({ query }, {}, { scroll: false, shallow: true });
+    router.push({ query }, { query }, { scroll: false, shallow: true });
   };
 
   return (

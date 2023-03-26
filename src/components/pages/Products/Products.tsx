@@ -6,6 +6,7 @@ import { GetManyResponse } from '@/core/types';
 import Layout from '@/components/common/Layout';
 import ProductsList from '@/components/common/ProductsList';
 import ProductsLayout from '@/components/common/ProductsLayout';
+import Pagination from '@/components/common/Pagination';
 import { useGetProducts } from '@/hooks/products';
 
 interface ProductsProps {
@@ -27,6 +28,13 @@ const Products: FC<ProductsProps> = ({ products }) => {
             products={isSuccess ? data.items : []}
             isLoading={isRefetching}
           />
+
+          {isSuccess && (
+            <Pagination
+              count={data.count}
+              total={data.total}
+            />
+          )}
         </ProductsLayout>
       </Container>
     </Layout>
