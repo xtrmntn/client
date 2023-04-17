@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, useMemo } from 'react';
 import { MdChevronLeft } from 'react-icons/md';
@@ -61,14 +62,16 @@ const Cart: FC = () => {
                   Назад
                 </Button>
 
-                <Button
-                  color="white"
-                  colorScheme="whatsapp"
-                  backgroundColor="primary"
-                  _hover={{ backgroundColor: 'primary-dark' }}
-                >
-                  Оформить заказ
-                </Button>
+                <Link href="/checkout">
+                  <Button
+                    color="white"
+                    colorScheme="whatsapp"
+                    backgroundColor="primary"
+                    _hover={{ backgroundColor: 'primary-dark' }}
+                  >
+                    Оформить заказ
+                  </Button>
+                </Link>
               </HStack>
             </Stack>
           )}

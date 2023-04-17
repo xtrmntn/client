@@ -9,12 +9,13 @@ const Navigation: FC = () => {
     { link: '/catalog', text: 'Каталог' },
     { link: '/payment', text: 'Оплата и доставка' },
     { link: '/contacts', text: 'Контакты' },
+    { link: '/orders', text: 'Узнать статус заказа' },
   ];
 
   return (
     <HStack
-      backgroundColor="primary"
       as="nav"
+      backgroundColor="primary"
     >
       <Container
         className={styles.container}
